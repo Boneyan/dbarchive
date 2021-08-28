@@ -1,0 +1,41 @@
+.project-card_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-card {
+    padding: 10px 10px 20px 10px;
+    width: fit-content;
+    width: -moz-fit-content;
+    min-width: 150px;
+    position: relative;
+    text-align: left;
+    background-color: #fefefe;
+    flex-basis: calc(15% - 20px);
+}
+
+.project-card_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.project-card_short {
+    margin: 10px 0;
+}
+
+.project-card_more {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.tag {
+    display: inline-block;
+    border-radius: 15px;
+    border: 2px solid #222;
+    padding: 2px 6px;
+}

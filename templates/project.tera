@@ -1,0 +1,85 @@
+{% extends "base" %}
+
+{% block subtitle %} | {{title}}{% endblock subtitle %}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/project.css">
+<link rel="stylesheet" href="/styles/pcard.css">
+{% endblock styles %}
+
+{% block content %}
+<div class="central-column">
+    <h1><a href="/year/{{year}}">{{year}}</a>{{' / ' ~ title}}</h1>
+    <div class="project-tags">
+        {% for tag in tags %}
+        <div class="tag">
+            {{tag}}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="project-body">
+        {% if presentation %}
+        <iframe class="project-body_presentation"
+        src = "/scripts/ViewerJS/?title=Презентация#/api/presentation/{{id}}" allowfullscreen webkitallowfullscreen></iframe>
+        {% endif %}
+        <div class="project-body_right">
+            <h3>Описание</h3>
+            <p class="project-body_description">{{description}}</p>
+            <h3>Команда</h3>
+            {% if team | length > 0 %}
+            {% for m in team %}
+            <a href="/cabinet/{{m[1]}}">{{m[0]}}</a><br>
+            {% endfor %}
+            {% else %}
+            <i>команда не указана</i>
+            {% endif %}
+            <h3>Ментор</h3>
+            {% if mentor[0] | length > 0 %}
+            <a href="/cabinet/{{mentor[1]}}">{{mentor[0]}}</a>
+            {% else %}
+            <i>ментор не указан</i>
+            {% endif %}
+        </p>
+    </div>
+    <div class="project-comments">
+        <h2>Комментарии</h2>
+        <div class="comment">
+            {% if header.rql > 1 %}
+            <textarea class="comment_field" id="comment" cols="30" rows="3"></textarea>
+            <br>
+            <div id="send-comment" class="button">
+                <span class="button_txt">
+                    Отправить
+                </span>
+            </div>
+            {% endif %}
+        </div>
+
+        <div id="cmt-container">
+            {% if comments | length > 0 %}
+            {% for comment in comments %}
+            <div class="comment">
+                <div class="comment_head">
+                    <b>{{comment.author}}</b>
+                    <i>{{comment.date.secs_since_epoch | date(format="%Y.%m.%d %H:%M")}}</i>
+                </div>
+                <p>{{comment.content}}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <i>комментариев пока нет</i>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% if header.rql > 1 %}
+<script>
+    var id = {{id}};
+    var usr_name = "{{header.name}}";
+</script>
+<script src="/scripts/comment.js"></script>
+{% endif %}
+{% endblock scripts %}

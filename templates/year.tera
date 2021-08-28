@@ -1,0 +1,31 @@
+{% extends "base" %}
+
+{% block subtitle %} | {{year}}{% endblock subtitle %}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/year.css">
+<link rel="stylesheet" href="/styles/pcard.css">
+{% endblock styles %}
+
+{% block content %}
+<div class="year-header">
+    {% if year > 2016 %}
+    <h2 class="year-header_item"><a href="/year/{{year - 1}}">{{year - 1}}</a></h2>
+    {% endif %}
+    <h1 class="year-header_item">{{year}}</h1>
+    <h2 class="year-header_item"><a href="/year/{{year + 1}}">{{year + 1}}</a></h2>
+</div>
+
+<div class="project-card_wrapper">
+    {% for project in projects %}
+    <div class="project-card">
+        <b>{{project.title}}</b><br>
+        <p class="project-card_short">{{project.short ~ '...'}}</p>
+        <div class="project-card_tags">
+            {% for tag in project.tags %}<div class="tag">{{tag}}</div>{% endfor %}
+        </div>
+        <a href="/project/{{project.id}}" class="project-card_more">узнать больше...</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

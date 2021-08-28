@@ -1,0 +1,49 @@
+.project-body {
+    width: fit-content;
+    width: -moz-fit-content;
+    min-width: 810px;
+}
+
+.project-body_presentation {
+    width: 600px;
+    height: 500px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 30px;
+}
+
+.project-body_right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.project-body_description {
+    max-width: 810px;
+}
+
+.project-tags {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-comments {
+    width: 600px;
+}
+
+.comment {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.comment_head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.comment_field {
+    width: 100%;
+    margin-bottom: 10px;
+}

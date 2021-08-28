@@ -1,0 +1,35 @@
+{% extends "base" %}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/search.css">
+{% endblock styles %}
+
+{% block content %}
+<!--<form method="POST" action="/api/project/new">-->
+<div class="central-column">
+    <h1>Добавление проекта</h1>
+    <input required spellcheck="false" id="year" placeholder="год"><br>
+    <input required spellcheck="false" id="title" placeholder="название"><br>
+    <div class="search-bar">
+        <input class="search-bar_input" type="text" id="s-input" placeholder="теги">
+        <div id="helper" class="search-bar_helper"></div>
+    </div>
+    <input required spellcheck="false" id="descr" placeholder="описание"><br>
+    <h4>Презентация</h4>
+    <input type="file" spellcheck="false" id="presn" placeholder="презентация"><br>
+    <h4>Команда</h4>
+    <div id="team"></div>
+    <div id="add-member" class="button">
+        <span class="button_txt">Добавить участника</span>
+    </div>
+    <h4>Ментор</h4>
+    <input required spellcheck="false" id="mentor" placeholder="логин"><br>
+    <input id="new-project" type="submit" value="Добавить проект">
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script>var tags = [{% for t in tags%}"{{t}}",{% endfor %}]</script>
+<script src="/scripts/upload.js"></script>
+<script src="/scripts/search.js"></script>
+{% endblock scripts %}

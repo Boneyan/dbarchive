@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Практика ИУ7 
+        {% block subtitle %}
+        {% endblock subtitle %}
+    </title>
+    <link rel="shortcut icon" href="/images/iu7.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles/style.css">
+    {% block styles %}
+    {% endblock styles %}
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="/images/iu7.png" alt="" class="logo_img">
+                <span class="logo_txt">АрхивПроектов</span>
+            </a>
+        </div>
+        <div class="header-button">
+            <a href="/search">Поиск</a>
+        </div>
+        {% if header.rql > 1 %}
+        <div class="header-button">
+            <a href="/create_project">Добавить проект</a>
+        </div>
+        {% endif %}
+        {% if header.rql > 2 %}
+        <div class="header-button">
+            <a href="/adminstuff">Админпанель</a>
+        </div>
+        {% endif %}
+        <div class="header-personal">
+        {% if header.rql > 0 %}
+            <div class="header-button">
+                <a href="/cabinet/{{header.login}}">{{header.name}}</a>
+            </div>
+            <div class="header-button">
+                <form method="GET" action="/api/logout">
+                    <input type="submit" value="Выйти">
+                </form>
+            </div>
+        {% else %}
+            <input required spellcheck="false" id="login" placeholder="логин">
+            <input required type="password" spellcheck="false" id="password" placeholder="пароль">
+            <div class="button" id="auth">
+                <span class="button_txt">Войти</span>
+            </div>
+            <a href="/register">Нет аккаунта?</a>
+        {% endif %}
+        </div>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+    {% if header.rql == 0 %}
+    <script src="/scripts/header.js"></script>
+    {% endif %}
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+</html>

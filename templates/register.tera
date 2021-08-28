@@ -1,0 +1,12 @@
+{% extends "base" %}
+{% block content %}
+<div class="central-column">
+    <h1>Регистрация</h1>
+    <form method="POST" action="/api/register">
+        <input required spellcheck="false" name="name" placeholder="имя фамилия"><br>
+        <input required spellcheck="false" name="login" placeholder="логин"><br>
+        <input required spellcheck="false" name="password" placeholder="пароль"><br>
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+</div>
+{% endblock content %}

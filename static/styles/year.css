@@ -1,0 +1,9 @@
+.year-header_item {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.year-header {
+    margin-bottom: 20px;
+    text-align: center;
+}

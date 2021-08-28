@@ -1,0 +1,4 @@
+db_name curs_test
+db_address localhost
+ucache_cap 100
+db_unique true

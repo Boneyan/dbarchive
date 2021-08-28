@@ -1,0 +1,9 @@
+{% extends "base" %}
+
+{% block content %}
+<div class="central">
+    {% for i in range(start=2016, end=maxyear+1) | reverse %}
+        <h1><a href="/year/{{i}}">Проекты {{i}}</a></h1>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends "base" %}
+
+{% block content %}
+<h1>Админпанель</h1>
+<h2>Сделать учителем</h2>
+<form method="GET" action="/reg">
+    <input required spellcheck="false" name="login" placeholder="логин">
+    <input type="submit" value="Сделать учителем">
+</form>
+{% endblock content %}

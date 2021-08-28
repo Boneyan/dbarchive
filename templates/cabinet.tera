@@ -1,0 +1,40 @@
+{% extends "base" %}
+
+{% block subtitle %} | {{name}}{% endblock subtitle %}
+
+{% block content %}
+<div class="central-column">
+    <p>{{name}}</p>
+    <p><b>Статус:</b>
+        {% if rql == 1 %}
+        Студент
+        {% elif rql == 2 %}
+        Преподаватель
+        {% elif rql == 3 %}
+        Администратор
+        {% endif %}
+    </p>
+    <div id="contacts">
+        <p>
+            {% if contact | length > 0 %}
+            <b>Контакты:</b> <pre id="old-contacts">{{contact}}</pre>
+            {% else %}
+            <i>Контакты не указаны</i><span id="old-contacts"></span>
+            {% endif %}
+        </p>
+        {% if header.login == login %}
+        <br>
+        <div id="change" class="button">
+            <span class="button_txt">Изменить контакты</span>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% if header.login == login %}
+<script>var login = "{{login}}";</script>
+<script src="/scripts/cabinet.js"></script>
+{% endif %}
+{% endblock scripts %}

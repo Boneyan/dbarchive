@@ -1,0 +1,33 @@
+{% extends "base" %}
+
+{% block subtitle %} | Поиск{% endblock subtitle %}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/pcard.css">
+<link rel="stylesheet" href="/styles/search.css">
+{% endblock styles %}
+
+{% block content %}
+<div class="central-column">
+<div class="search-bar">
+    <input class="search-bar_input" type="text" id="s-input" placeholder="теги">
+    <div class="button search-bar_btn" id="start-search">
+        <span class="button_txt">
+            Найти
+        </span>
+    </div>
+    <div id="helper" class="search-bar_helper"></div>
+</div>
+<input type="radio" name="conj" value="1" checked="1">Все теги
+<input type="radio" name="conj" value="2">Хотя бы один тег
+</div>
+
+<div id="wrapper" class="project-card_wrapper">
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script>var tags = [{% for t in tags%}"{{t}}",{% endfor %}]</script>
+<script src="/scripts/search.js"></script>
+<script src="/scripts/search_page.js"></script>
+{% endblock scripts %}

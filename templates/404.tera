@@ -1,0 +1,8 @@
+{% extends "base" %}
+
+{% block content %}
+<div class="central-column">
+    <h1>404: Страница не существует</h1>
+    <a href="/">На главную</a>
+</div>
+{% endblock content %}
